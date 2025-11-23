@@ -3,12 +3,18 @@ import cors from "cors";
 import { errorHandler } from "./middlewares/error.middleware";
 import authRoutes from "../src/routes/auth.routes"
 import cookieParser from "cookie-parser";
+import config from "./config";
 
 const app = express();
 
 
 app.use(express.json());
-app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+    origin: config.CLIENT_URL,
+    credentials: true
+}));
+
 app.use(cookieParser());
 
 

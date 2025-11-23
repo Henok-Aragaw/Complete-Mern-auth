@@ -141,7 +141,7 @@ export const me = async (req: Request, res: Response) => {
     const user = await User.findById(userId).select("-password -refreshTokens");
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    return res.json({ user });
+    return res.status(200).json({ success: true, user });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Server error" });

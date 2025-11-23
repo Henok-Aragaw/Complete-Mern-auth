@@ -7,7 +7,7 @@ const router = Router();
 
 router.post("/register", register);
 router.post("/login", login);
-router.post("/logout", logout);
+router.post("/logout", authMiddleware, logout);
 router.post("/refresh", refresh);
 router.get("/me", authMiddleware, me);
 
