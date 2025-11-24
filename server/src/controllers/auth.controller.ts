@@ -5,7 +5,7 @@ import { User } from "../models/User.model";
 import { generateTokens } from "../utils/generateTokens";
 import config from "../config";
 
-// Helper for cookie options
+// Helper for cookie
 const cookieOptions = () => {
   const isProd = config.NODE_ENV === "production";
   return {
